@@ -1,12 +1,9 @@
 import { Knex } from 'knex';
 
 export async function up(knex: Knex): Promise<void> {
-  return knex.schema.createTable('users', (table) => {
+  return knex.schema.createTable('files', (table) => {
     table.increments('id').primary().notNullable();
-    table.string('name').notNullable();
-    table.string('email').unique().notNullable();
-    table.string('type').notNullable();
-    table.string('password_hash').notNullable();
+    table.string('url').notNullable();
 
     table
       .timestamp('created_at')
@@ -20,5 +17,5 @@ export async function up(knex: Knex): Promise<void> {
 }
 
 export async function down(knex: Knex): Promise<void> {
-  return knex.schema.dropTable('users');
+  return knex.schema.dropTable('files');
 }
