@@ -5,15 +5,7 @@ import query from '../../shared/infra/knex/knex';
 class ListAllBootcampsUseCase {
   async execute(request: Request, response: Response): Promise<Response> {
     const bootcamps = await query({ b: 'bootcamps' })
-      .select([
-        'b.id',
-        'b.name',
-        'b.duration',
-        'b.location',
-        'b.description',
-        'b.coordinator_id',
-        'f.url',
-      ])
+      .select(['b.id', 'b.name', 'b.description', 'f.url'])
       .innerJoin({ f: 'files' }, 'f.id', 'b.file_id');
 
     if (!bootcamps) {

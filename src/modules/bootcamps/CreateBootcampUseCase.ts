@@ -4,8 +4,8 @@ import query from '../../shared/infra/knex/knex';
 
 class CreateBootcampUseCase {
   async execute(request: Request, response: Response): Promise<Response> {
-    const { name, duration, location, description, coordinator_id } =
-      request.body;
+    const { id: coordinator_id } = request.user;
+    const { name, duration, location, description } = request.body;
 
     const bootcamp = await query('bootcamps')
       .insert({
