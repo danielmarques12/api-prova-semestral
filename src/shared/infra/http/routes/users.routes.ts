@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
-import { AuthenticateUserUseCase } from '../../../../modules/users/useCases/AuthenticateUserUseCase';
-import { CreateUserUseCase } from '../../../../modules/users/useCases/CreateUserUseCase';
+import { AuthenticateUserUseCase } from '../../../../modules/users/AuthenticateUserUseCase';
+import { CreateUserUseCase } from '../../../../modules/users/CreateUserUseCase';
 
 const usersRoutes = Router();
 

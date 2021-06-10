@@ -1,7 +1,7 @@
 import { hash } from 'bcrypt';
 import { Request, Response } from 'express';
 
-import query from '../../../shared/infra/knex/knex';
+import query from '../../shared/infra/knex/knex';
 
 class CreateUserUseCase {
   async execute(request: Request, response: Response): Promise<Response> {
