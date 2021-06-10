@@ -6,8 +6,8 @@ import { verify } from 'jsonwebtoken';
 import authConfig from '../../../../config/auth';
 
 interface IPayload {
-  user_id: number;
-  user_type: string;
+  id: number;
+  type: string;
 }
 
 export async function ensureAuthenticated(
@@ -27,11 +27,11 @@ export async function ensureAuthenticated(
   try {
     const decoded = verify(token, secret_key);
 
-    const { user_id, user_type } = decoded as IPayload;
+    const { id, type } = decoded as IPayload;
 
     request.user = {
-      id: user_id,
-      type: user_type,
+      id,
+      type,
     };
 
     next();

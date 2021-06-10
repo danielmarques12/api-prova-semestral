@@ -41,7 +41,7 @@ class AuthenticateUserUseCase {
         .json({ error: 'Incorrect email or password' });
     }
 
-    const token = sign({ user_id: user.id, user_type: user.type }, secret_key, {
+    const token = sign({ id: user.id, type: user.type }, secret_key, {
       subject: user.id.toString(),
       expiresIn,
     });
