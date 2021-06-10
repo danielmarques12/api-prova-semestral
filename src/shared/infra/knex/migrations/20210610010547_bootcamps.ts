@@ -6,7 +6,7 @@ export async function up(knex: Knex): Promise<void> {
     table.string('name').notNullable();
     table.string('duration').notNullable();
     table.string('location').notNullable();
-    table.string('description').notNullable();
+    table.string('description', 1000).notNullable();
 
     table
       .integer('coordinator_id')
@@ -18,7 +18,7 @@ export async function up(knex: Knex): Promise<void> {
 
     table
       .integer('file_id')
-      .notNullable()
+      .nullable()
       .references('id')
       .inTable('files')
       .onUpdate('CASCADE')
