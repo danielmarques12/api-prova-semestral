@@ -4,7 +4,7 @@ import query from '../../shared/infra/knex/knex';
 
 class DeleteStudentUseCase {
   async execute(request: Request, response: Response): Promise<Response> {
-    const { student_id, bootcamp_id } = request.params;
+    const { student_id } = request.params;
     const { type } = request.user;
 
     if (type !== 'coordinator') {
@@ -12,7 +12,7 @@ class DeleteStudentUseCase {
     }
 
     const student = await query('bootcamp_students')
-      .where({ student_id, bootcamp_id })
+      .where({ id: student_id })
       .delete();
 
     if (!student) {

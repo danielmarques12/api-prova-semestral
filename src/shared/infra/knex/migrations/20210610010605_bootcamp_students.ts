@@ -3,20 +3,13 @@ import { Knex } from 'knex';
 export async function up(knex: Knex): Promise<void> {
   return knex.schema.createTable('bootcamp_students', (table) => {
     table.increments('id').primary().notNullable();
+    table.integer('bootcamp_id').notNullable();
 
     table
       .integer('student_id')
       .notNullable()
       .references('id')
       .inTable('users')
-      .onUpdate('CASCADE')
-      .onDelete('SET NULL');
-
-    table
-      .integer('bootcamp_id')
-      .notNullable()
-      .references('id')
-      .inTable('bootcamps')
       .onUpdate('CASCADE')
       .onDelete('SET NULL');
 
