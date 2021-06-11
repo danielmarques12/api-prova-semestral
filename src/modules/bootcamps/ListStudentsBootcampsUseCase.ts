@@ -6,7 +6,7 @@ class ListStudentsBootcampsUseCase {
   async execute(request: Request, response: Response): Promise<Response> {
     const { id, type } = request.user;
 
-    if (type !== 'student') {
+    if (type !== 'estudante') {
       return response.status(401).json({ error: 'Permission denied' });
     }
 
