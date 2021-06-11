@@ -13,7 +13,7 @@ class UploadFilesUseCase {
     const { bootcamp_id } = request.params;
     const { tempFilePath } = (request as any).files.file;
 
-    if (type !== 'coordinator') {
+    if (type !== 'coordenador') {
       return response.status(401).json({ error: 'Permission denied' });
     }
 

@@ -7,7 +7,7 @@ class DeleteStudentUseCase {
     const { student_id } = request.params;
     const { type } = request.user;
 
-    if (type !== 'coordinator') {
+    if (type !== 'coordenador') {
       return response.status(401).json({ error: 'Permission denied' });
     }
 

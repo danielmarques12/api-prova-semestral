@@ -7,7 +7,7 @@ class ListStudentsUseCase {
     const { type } = request.user;
     const { bootcamp_id } = request.params;
 
-    if (type !== 'coordinator') {
+    if (type !== 'coordenador') {
       return response.status(401).json({ error: 'Permission denied' });
     }
 

@@ -6,7 +6,7 @@ class ListCoordinatorBootcampsUseCase {
   async execute(request: Request, response: Response): Promise<Response> {
     const { id, type } = request.user;
 
-    if (type !== 'coordinator') {
+    if (type !== 'coordenador') {
       return response.status(401).json({ error: 'Permission denied' });
     }
 
