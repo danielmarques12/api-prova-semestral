@@ -16,6 +16,7 @@ class CreateBootcampUseCase {
         coordinator_id,
       })
       .returning([
+        'id',
         'name',
         'duration',
         'location',

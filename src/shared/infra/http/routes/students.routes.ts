@@ -12,7 +12,7 @@ const listStudentsUseCase = new ListStudentsUseCase();
 const deleteStudentUseCase = new DeleteStudentUseCase();
 
 studentsRoutes.post(
-  '/create',
+  '/subscribe/:bootcamp_id',
   ensureAuthenticated,
   subscribeToBootcampUseCase.execute
 );

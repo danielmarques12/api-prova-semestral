@@ -2,15 +2,17 @@ import { Router } from 'express';
 
 import { CreateBootcampUseCase } from '../../../../modules/bootcamps/CreateBootcampUseCase';
 import { ListAllBootcampsUseCase } from '../../../../modules/bootcamps/ListAllBootcampsUseCase';
-import { ListMyBootcampsUseCase } from '../../../../modules/bootcamps/ListMyBootcampsUseCase';
+import { ListCoordinatorBootcampsUseCase } from '../../../../modules/bootcamps/ListCoordinatorBootcampsUseCase';
 import { ListOneBootcampUseCase } from '../../../../modules/bootcamps/ListOneBootcampUseCase';
+import { ListStudentsBootcampsUseCase } from '../../../../modules/bootcamps/ListStudentsBootcampsUseCase';
 import { ensureAuthenticated } from '../middlewares/ensureAuthenticated';
 
 const bootcampsRoutes = Router();
 
 const createBootcampUseCase = new CreateBootcampUseCase();
 const listAllBootcampsUseCase = new ListAllBootcampsUseCase();
-const listMyBootcampsUseCase = new ListMyBootcampsUseCase();
+const listCoordinatorBootcampsUseCase = new ListCoordinatorBootcampsUseCase();
+const listStudentsBootcampsUseCase = new ListStudentsBootcampsUseCase();
 const listOneBootcampUseCase = new ListOneBootcampUseCase();
 
 bootcampsRoutes.post(
@@ -20,9 +22,15 @@ bootcampsRoutes.post(
 );
 
 bootcampsRoutes.get(
-  '/list-my-bootcamps',
+  '/coordinator-list-bootcamps',
   ensureAuthenticated,
-  listMyBootcampsUseCase.execute
+  listCoordinatorBootcampsUseCase.execute
+);
+
+bootcampsRoutes.get(
+  '/students-list-bootcamps',
+  ensureAuthenticated,
+  listStudentsBootcampsUseCase.execute
 );
 
 bootcampsRoutes.get('/listall', listAllBootcampsUseCase.execute);

@@ -9,7 +9,7 @@ class ListAllBootcampsUseCase {
       .innerJoin({ f: 'files' }, 'f.id', 'b.file_id');
 
     if (!bootcamps) {
-      return response.status(404).json({ error: 'No bootcamp were found' });
+      return response.status(404).json({ error: 'No bootcamps were found' });
     }
 
     return response.status(201).json(bootcamps);
