@@ -1,6 +1,8 @@
 ### Prova Semestral - API - Disciplina de Microserviços
 
+###### No primeiro acesso, pode levar vários segundos para carregar, devido à hospedagem gratuita (Dynos do Heroku dormindo 😴).
 [Projeto no Heroku](https://ps13si-web.herokuapp.com/)
+
 
 [Front-end do projeto](https://github.com/danielmarques12/web-prova-semestral)
 
